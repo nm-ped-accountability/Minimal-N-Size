@@ -240,3 +240,42 @@ head(n_size)
 
 write.csv(n_size, "Proficiency Science n_size.csv", row.names = FALSE, na = "")
 
+
+# SGP ---------------------------------------------------------------------
+
+sgp <- read.csv("PARCC SGP.csv", header = TRUE, stringsAsFactors = FALSE)
+
+counts <- sgp %>%
+    group_by(SchNum) %>%
+    summarize(n_students = n()) %>%
+    mutate(n_schools = 1) %>%
+    arrange(n_students)
+
+head(counts)
+
+n1 <- percent(1)
+n2 <- percent(2)
+n3 <- percent(3)
+n4 <- percent(4)
+n5 <- percent(5)
+n6 <- percent(6)
+n7 <- percent(7)
+n8 <- percent(8)
+n9 <- percent(9)
+n10 <- percent(10)
+n11 <- percent(11)
+n12 <- percent(12)
+n13 <- percent(13)
+n14 <- percent(14)
+n15 <- percent(15)
+n16 <- percent(16)
+n17 <- percent(17)
+n18 <- percent(18)
+n19 <- percent(19)
+n20 <- percent(20)
+
+n_size <- rbind(n1, n2, n3, n4, n5, n6, n7, n8, n9, n10,
+                n11, n12, n13, n14, n15, n16, n17, n18, n19, n20)
+head(n_size)
+
+write.csv(n_size, "SGP n_size.csv", row.names = FALSE, na = "")
