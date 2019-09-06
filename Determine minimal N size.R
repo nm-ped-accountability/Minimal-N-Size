@@ -9,30 +9,6 @@ library(tidyverse)
 ELP1718 <- read.csv("SY1718 ELP Student Level.csv", 
                     header = TRUE, stringsAsFactors = FALSE)
 
-# ELP1718 <- ELP1718[!is.na(ELP1718$met), ]
-# ELP1718$met2[ELP1718$met == TRUE] <- 1
-# ELP1718$met2[ELP1718$met == FALSE] <- 0
-# str(ELP1718$met2)
-# ELP1718$schnumb <- as.factor(ELP1718$schnumb)
-# 
-# 
-# ICC <- ICCbare(x = schnumb, y = met, data = ELP1718)
-# head(ICC)
-# 
-# ICC <- ICCbareF(x = schnumb, y = met, data = ELP1718)
-# head(ICC)
-# 
-# Nest(est.type = "pilot", ICC = 0.1, w = 0.2,
-#      x = schnumb, y = met, data = ELP1718, alpha = 0.05)
-# 
-# fit <- lmer(diff ~ schnumb + (1 | schnumb), data = ELP1718)
-# summary(fit)
-# 
-# fit2 <- glmer(met2 ~ schnumb + (1 | schnumb), data = ELP1718, family = binomial)
-# summary(fit2)
-# 
-# table(ELP1718$met2)
-
 counts <- ELP1718 %>%
     group_by(schnumb) %>%
     summarize(n_students = n()) %>%
